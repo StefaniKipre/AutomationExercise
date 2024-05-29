@@ -7,6 +7,8 @@ describe('Test the core functionalities of the website', () => {
     beforeEach(function() {
       cy.visit('https://www.automationexercise.com/')
    })
+   
+   
    it('Login with valid credentials', () => {
 
     Shop.SignupLogin()
@@ -14,15 +16,20 @@ describe('Test the core functionalities of the website', () => {
     Shop.Password('stefi123')
     Shop.Login()
    })
+   
+   
    it('Search for a specific product', () => {
     
     Shop.Women()
     Shop.Dress()
     Shop.Polo()
-    Shop.elements.GreenPoloTop().should('have.text', 'Fancy Green Top')
-    Shop.elements.BluePoloTop().should('have.text', 'Blue Top')
-    
+    Shop.elements.GreenPoloTop().contains('p', 'Fancy Green Top')
+    .should('be.visible');
+    Shop.elements.BluePoloTop().contains('p', 'Blue Top')
+    .should('be.visible');
    })
+   
+   
    it('Checkout Process', () => {
     
     Shop.SignupLogin()
@@ -40,7 +47,8 @@ describe('Test the core functionalities of the website', () => {
     Shop.PlaceOrder()
     Shop.CardInput()
     Shop.Confirm()
-    Shop.elements.OrderSuccess().should('have.text', 'Congratulations! Your order has been confirmed!')
+    Shop.elements.OrderSuccess()
+    .should('have.text', 'Congratulations! Your order has been confirmed!')
     
 
    })
