@@ -1,4 +1,5 @@
-import { Shop } from "./Elements.cy";
+import { Shop } from './Functions.cy';
+import { elements } from './Selectors.cy'
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
   });
@@ -23,9 +24,9 @@ describe('Test the core functionalities of the website', () => {
     Shop.Women()
     Shop.Dress()
     Shop.Polo()
-    Shop.elements.GreenPoloTop().contains('p', 'Fancy Green Top')
+    elements.GreenPoloTop().contains('p', 'Fancy Green Top')
     .should('be.visible');
-    Shop.elements.BluePoloTop().contains('p', 'Blue Top')
+    elements.BluePoloTop().contains('p', 'Blue Top')
     .should('be.visible');
    })
    
@@ -47,7 +48,7 @@ describe('Test the core functionalities of the website', () => {
     Shop.PlaceOrder()
     Shop.CardInput()
     Shop.Confirm()
-    Shop.elements.OrderSuccess()
+    elements.OrderSuccess()
     .should('have.text', 'Congratulations! Your order has been confirmed!')
     
 

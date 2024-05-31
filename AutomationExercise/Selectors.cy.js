@@ -1,5 +1,4 @@
-export class Elements {
-    elements = {
+export const elements = {
         SignupLoginBtn: () => cy.get('a[href="/login"]'),
         Loginemail: () => cy.get('[name="email"][data-qa="login-email"]'),
         LoginPassword: () => cy.get('[data-qa="login-password"]'),
@@ -24,55 +23,3 @@ export class Elements {
         OrderSuccess: () => cy.get('#form * p')
 
     }
-    SignupLogin(){
-        this.elements.SignupLoginBtn().click()
-    }
-    Email(Mail){
-        this.elements.Loginemail().type(Mail)
-    }
-    Password(Pass){
-        this.elements.LoginPassword().type(Pass)
-    }
-    Login(){
-        this.elements.LoginBtn().click()
-    }
-    Women(){
-        this.elements.WomenCategory().click()
-    }
-    Dress(){
-        this.elements.DressBtn().click()
-    }
-    GreenTop(){
-        this.elements.GreenTopAddToCart().click()
-    }
-    BlueTop(){
-        this.elements.BlueTopAddToCart().click()
-    }
-    Polo(){
-        this.elements.PoloSelect().click()
-    }
-    ContinueShopping(){
-        this.elements.ContinueShoppingBtn().click()
-    }
-    ViewCart(){
-        this.elements.ViewCartBtn().click()
-    }
-    Checkout(){
-        this.elements.CheckoutBtn().click()
-    }
-    PlaceOrder(){
-        this.elements.PlaceOrderBrn().click()
-    }
-    CardInput(){
-        this.elements.CardNameInput().type('Stefi kipre')
-        this.elements.CardNumInput().type('1234567891234567')
-        this.elements.CVC().type('582')
-        this.elements.Month().type('12')
-        this.elements.Year().type('2026')
-    }
-    Confirm(){
-        this.elements.PayandConfirm().click()
-    }
-
-}
-export const Shop = new Elements();
